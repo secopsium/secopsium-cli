@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/secopsium/secopsium-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/secopsium/secopsium-cli/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/secopsium/secopsium-cli)](https://github.com/secopsium/secopsium-cli/releases)
-[![License](https://img.shields.io/github/license/secopsium/secopsium-cli)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 SecOpsium CLI is an open-source, local-first security scanner for repositories.
 
