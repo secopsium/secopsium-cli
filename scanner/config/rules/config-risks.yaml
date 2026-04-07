@@ -1,0 +1,35 @@
+rules:
+  - id: secopsium-config-hardcoded-db-password
+    languages: [python, javascript, typescript, yaml, json, go, ruby, java]
+    severity: ERROR
+    message: Hardcoded database password found in config.
+    patterns:
+      - pattern-regex: "(?i)(db_password|database_password|password)\\s*[:=]\\s*['\\\"][^'\\\"]{8,}['\\\"]"
+
+  - id: secopsium-config-weak-jwt-secret
+    languages: [python, javascript, typescript, yaml, json, go, ruby, java]
+    severity: WARNING
+    message: Potential weak JWT/secret key configured.
+    patterns:
+      - pattern-regex: "(?i)(jwt_secret|secret_key|session_secret)\\s*[:=]\\s*['\\\"](changeme|secret|password|dev|test|123456|default)['\\\"]"
+
+  - id: secopsium-config-debug-enabled
+    languages: [python, javascript, typescript, yaml, json, go, ruby, java]
+    severity: WARNING
+    message: Debug mode appears enabled in configuration.
+    patterns:
+      - pattern-regex: "(?i)(debug|debug_mode)\\s*[:=]\\s*(true|1|\"true\"|'true')"
+
+  - id: secopsium-config-cors-wildcard
+    languages: [python, javascript, typescript, yaml, json, go]
+    severity: WARNING
+    message: Wildcard CORS origin detected.
+    patterns:
+      - pattern-regex: "(?i)(cors|allowed_origins|access-control-allow-origin)\\s*[:=]\\s*['\\\"]\\*['\\\"]"
+
+  - id: secopsium-config-disable-tls-verify
+    languages: [python, javascript, typescript, yaml, json, go, ruby, java]
+    severity: ERROR
+    message: TLS/SSL verification is explicitly disabled.
+    patterns:
+      - pattern-regex: "(?i)(verify_ssl|verify_tls|ssl_verify|insecure_skip_verify|rejectUnauthorized)\\s*[:=]\\s*(false|0|\"false\"|'false')"

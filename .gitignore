@@ -1,0 +1,7 @@
+bin/
+dist/
+coverage/
+.DS_Store
+secopsium
+*.exe
+*.out

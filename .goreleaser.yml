@@ -1,0 +1,36 @@
+project_name: secopsium
+
+before:
+  hooks:
+    - go test ./...
+
+builds:
+  - id: secopsium
+    main: ./cmd/secopsium
+    binary: secopsium
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w -X github.com/secopsium/secopsium-cli/internal/buildinfo.Version={{ .Version }} -X github.com/secopsium/secopsium-cli/internal/buildinfo.Commit={{ .Commit }} -X github.com/secopsium/secopsium-cli/internal/buildinfo.Date={{ .Date }}
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - id: secopsium-archive
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  draft: false
+  prerelease: auto
