@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	github.com/bmatcuk/doublestar/v4 v4.7.1
 	github.com/charmbracelet/lipgloss v0.13.0
-	github.com/go-git/go-git/v5 v5.17.1
+	github.com/go-git/go-git/v5 v5.18.0
 	github.com/spf13/cobra v1.8.1
 	gopkg.in/yaml.v3 v3.0.1
 )
