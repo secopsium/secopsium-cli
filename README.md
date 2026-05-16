@@ -115,7 +115,7 @@ JavaScript and TypeScript files over 3 MB are skipped by default to keep scans f
 ## Build From Source
 
 Requirements:
-- Go 1.24+
+- Go 1.25+
 
 Build for your current OS:
 
